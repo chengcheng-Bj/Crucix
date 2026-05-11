@@ -46,6 +46,7 @@ import { briefing as yfinance } from './sources/yfinance.mjs';
 // === Tier 6: Cyber & Infrastructure ===
 import { briefing as cisaKev } from './sources/cisa-kev.mjs';
 import { briefing as cloudflareRadar } from './sources/cloudflare-radar.mjs';
+import { briefing as tiktokBriefing } from './sources/tiktok-trending.mjs';
 
 const SOURCE_TIMEOUT_MS = 30_000; // 30s max per individual source
 
@@ -111,6 +112,7 @@ export async function fullBriefing() {
     // Tier 6: Cyber & Infrastructure
     runSource('CISA-KEV', cisaKev),
     runSource('Cloudflare-Radar', cloudflareRadar),
+    runSource('TikTok-Trending', tiktokBriefing),
   ];
 
   // Each runSource has its own 30s timeout, so allSettled will resolve
